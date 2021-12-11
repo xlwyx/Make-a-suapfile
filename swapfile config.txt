@@ -1,0 +1,28 @@
+## first ##
+fallocate -l [NªGb] /swapfile
+### In the terminal, We make a swapfile with 'fallocate', this command is a kernel utility... ###
+
+## second ##
+du -sh /swapfile
+
+## change mode with 'chmod' ##
+chmod 600 /swapfile
+
+## make a swap ##
+mkswap /swapfile
+
+## mount the swapfile ##
+swapon /swapfile
+
+## by mount swapfile on autostart or boot ##
+sudo /doas nano /etc/fstab
+{
+  /swapfile     swap  swap  defaults  0 0
+  }
+exit
+&&
+reboot..
+
+
+
+**************************** Thanks, END ***************************************************************************+
